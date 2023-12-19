@@ -10,7 +10,7 @@ function Footer() {
   const iconSize = "2rem";
 
   return (
-    <footer className="bg-[#363062] text-white flex items-center justify-between px-10 py-3 absolute bottom-0 w-full">
+    <footer className="bg-[#363062] text-white flex items-center justify-between px-10 py-3 bottom-0 w-full">
       <section className="flex items-center gap-x-2">
         <FaCopyright size={"1.2rem"} />
         <p>2023. Neo Vortex, Inc. All rights reserved</p>
