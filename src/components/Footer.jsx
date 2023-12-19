@@ -7,7 +7,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 function Footer() {
-  const iconSize = "2rem";
+  const iconSize = "1.5rem";
 
   return (
     <footer className="bg-[#363062] text-white flex items-center justify-between px-10 py-3 bottom-0 w-full">

@@ -1,22 +1,48 @@
-import React from "react";
+import {useEffect, useRef, useState} from "react";
 import { Link } from "react-router-dom";
 
 // COMPONENTS
 import Footer from "../../components/Footer";
 import Header from "./components/Header";
+import Cards from "./components/Cards";
 
 // ASSETS
 import HomeImg from "../../assets/img/home.jpg";
-import BigImg from "../../assets/img/home-big.jpg";
+import Home2 from "../../assets/img/home-big.jpg";
+import Home3 from "../../assets/img/home-img.jpg"
+import { TbRobotFace } from "react-icons/tb";
+import { IoCloudUploadOutline } from "react-icons/io5";
+import { IoDocumentTextOutline } from "react-icons/io5";
 
 function HomePage() {
-  return (
-    <main>
-      <div className="min-h-screen">
-        <Header />
+  const [heightClass, setHeightClass] = useState({})
 
-        <article className="py-10 px-24 gap-x-20 flex items-center justify-between">
-          <section className="w-[400px]">
+  const iconSize = "7rem"
+  const styles = {
+    strokeWidth: 1.6
+  }
+
+  //GET WINDOW DIMENSIONS
+  const windowHeight = window.innerHeight
+  console.log(windowHeight)
+  const headerHeight = useRef(null)
+
+  useEffect(() => {
+    if(headerHeight.current) {
+      const heigth = headerHeight.current.clientHeight
+      const toSet = windowHeight -  heigth
+      setHeightClass({height: `${toSet}px`})
+      console.log(toSet)
+    }
+  }, [windowHeight])
+
+  return (
+    <main className="bg-[#f5f5f5]">
+      <div className="h-screen">
+        <Header headerHeight={headerHeight} />
+
+        <article className="py-10 px-24 gap-x-20 flex items-center justify-between relative" style={heightClass}>
+          <section className="w-[400px] z-10 text-[#f5f5f5]">
             <h2 className="text-6xl font-semibold mb-5">
               Desata tu creatividad
             </h2>
@@ -31,16 +57,44 @@ function HomePage() {
               ¡Pruebalo!
             </Link>
           </section>
-          <section className="hidden h-[600px] lg:relative md:block">
-            <img src={BigImg} alt="Big image" className="h-[550px] lg:ml-32" />
+          <section className="z-0 absolute top-0 inset-0">
             <img
-              src={HomeImg}
+              src={Home3}
               alt="Home image"
-              className="w-[300px] rounded-lg absolute left-0 bottom-0 hidden lg:block"
+              className="object-cover"
+              style={heightClass}
             />
           </section>
         </article>
       </div>
+
+      <article className="px-24">
+        <h3 className="text-3xl my-7">Funcionalidades</h3>
+
+        <section className="grid grid-cols-3 gap-x-24 mb-14">
+          <Cards
+            initColor={"#342f54"}
+            finColor={"#68679e"}
+            icon={<TbRobotFace size={iconSize} style={styles} color="#f5f5f5" />}
+            title={"Asistente IA"}
+            text={"Resuelve tus dudas y obten ideas mediante asistencia de inteligencia artificial"}
+          />
+          <Cards 
+            initColor={"#342f54"}
+            finColor={"#68679e"}
+            icon={<IoCloudUploadOutline size={iconSize} style={styles} color="#f5f5f5"/>}
+            title={"Almancenamiento en la nube"}
+            text={"Guarda tus documentos en la nube y accede a ellos desde cualquier dispositivo"}
+          />
+          <Cards 
+            initColor={"#342f54"}
+            finColor={"#68679e"}
+            icon={<IoDocumentTextOutline size={iconSize} style={styles} color="#f5f5f5" />}
+            title={"Texto inteligente"}
+            text={"Obten sugerencias de escritura y resume tus textos"}
+            />
+        </section>
+      </article>
 
       <Footer />
     </main>

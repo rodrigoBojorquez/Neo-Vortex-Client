@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 // ASSETS
 import { MdArrowOutward } from "react-icons/md";
 
-function Header() {
+function Header({ headerHeight }) {
   return (
-    <header className="px-10 bg-[#363062] flex items-center justify-between text-white py-3">
+    <header ref={headerHeight} className="px-10 bg-[#363062] flex items-center justify-between text-white py-3">
       <div className="flex items-center gap-x-24">
-        <Link to={"/"} className="text-xl font-semibold font-sans">Neo Vortex</Link>
+        <Link to={"/"} className="text-2xl font-semibold font-sans">Neo Vortex</Link>
 
         <ul className="flex items-center gap-x-7 text-lg">
           <li className="flex gap-1 items-center">
