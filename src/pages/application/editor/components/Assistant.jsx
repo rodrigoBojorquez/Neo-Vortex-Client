@@ -1,38 +1,43 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
-// ASSISTANT
+// COMPONENTS
+import Welcome from './Welcome';
+
+// ASSETS
 import { AiOutlineReload } from "react-icons/ai";
 
 function Assistant() {
+    const [ fieldHeight, setFieldHeight ] = useState(null)
 
-    const [height, setHeight] = useState(42)
-    const [chatStyle, setChatStyle] = useState({
-        height: `${height}px`,
-        // overflowY: "hidden"
-    })
-
-    const handleChange = (e) => {
-        const currentHeight = e.target.scrollHeight;
-        setHeight(Math.max(42, currentHeight));
-    };
-    
-
-    const handleKeyDown = e => {
-        if (e.key === "Enter" && e.shiftKey) {
-            e.preventDefault()
-            const newHeight = height + 26
-            setHeight(newHeight)
-        }
-    }
+    const chatHistory = []
+    const inputHeight = useRef(null)
+    const head = useRef(null)
+    const assistant = useRef(null)
 
     useEffect(() => {
-        setChatStyle({ ...chatStyle, height: `${height}px` })
-    }, [height])
+        const chatInput = document.getElementById("chat")
+        chatInput.addEventListener('keyup', e => {
+            chatInput.style.height = "42px"
+            let height = e.target.scrollHeight
+            chatInput.style.height = `${height}px`
+        })
+    }, [])
+
+    useEffect(() => {
+        if (inputHeight.current && assistant.current && head.current) {
+            const inputH = inputHeight.current.clientHeight
+            const assistantH = assistant.current.clientHeight
+            const headH = head.current.clientHeight
+            const toSet = assistantH - inputH - headH
+            
+            setFieldHeight(`${toSet}px`)
+        }
+    }, [])
 
     return (
-        <article className='bg-white'>
+        <article ref={assistant} className='bg-white h-full '>
             {/* HEAD */}
-            <section className='flex justify-center items-center relative bg-[#4D4C7D] bg-opacity-30 py-[10px]'>
+            <section ref={head} className='flex justify-center items-center relative bg-[#4D4C7D] bg-opacity-30 py-[10px]'>
                 <h3 className='text-center text-[#363062] text-xl font-medium'>Asistente</h3>
                 <button className='absolute right-5'>
                     <AiOutlineReload size={"1.5rem"} stroke='2' color='#F99417' />
@@ -40,19 +45,17 @@ function Assistant() {
             </section>
 
             {/* CHAT */}
-            <section className=''>
-                chat
+            <section className='px-5' style={{height: fieldHeight}}>
+                {chatHistory.length === 0 && (
+                    <Welcome/>
+                )}
             </section>
 
             {/* PROMPTS */}
-            <section className='flex bg-[#4d4c7d] bg-opacity-30 p-2 items-center'>
+            <section className='flex bg-[#4d4c7d] bg-opacity-30 p-2 items-center' ref={inputHeight}>
                 <textarea
-                    className='bg-white resize-none max-h-[200px] w-full rounded-md outline-none p-2 overflow-auto'
-                    style={chatStyle}
-                    onKeyDown={handleKeyDown}
-                    onChange={handleChange}
-                    minrows={3}
-                    maxrows={10}
+                    className='bg-white resize-none h-[42px] max-h-[212px] w-full rounded-md outline-none p-2 vortex-scroll'
+                    id='chat'
                 />
             </section>
         </article>

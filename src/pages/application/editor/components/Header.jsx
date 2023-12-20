@@ -6,7 +6,7 @@ import { LiaSaveSolid } from "react-icons/lia";
 import { RiHome6Line } from "react-icons/ri";
 
 
-function Header() {
+function Header({ headerHeight }) {
 
     const iconSize = "2rem"
     const iconStyles = {
@@ -14,7 +14,7 @@ function Header() {
     }
 
     return (
-        <header className='bg-[#363062] px-10 py-3 flex justify-between items-center'>
+        <header ref={headerHeight} className='bg-[#363062] px-10 py-3 flex justify-between items-center'>
             <div className='flex items-center gap-x-3 text-white'>
                 <PiExport size={iconSize} color='white' style={iconStyles}/>
                 <LiaSaveSolid size={iconSize} color='white' style={iconStyles}/>
