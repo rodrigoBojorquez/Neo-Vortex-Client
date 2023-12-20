@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Header from "./components/Header";
 import Cards from "./components/Cards";
+import SideBar from "../../components/SideBar";
 
 // ASSETS
 import HomeImg from "../../assets/img/home.jpg";
@@ -16,6 +17,7 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 
 function HomePage() {
   const [heightClass, setHeightClass] = useState({})
+  const [openSideBar, setOpenSideBar] = useState(false)
 
   const iconSize = "7rem"
   const styles = {
@@ -24,7 +26,6 @@ function HomePage() {
 
   //GET WINDOW DIMENSIONS
   const windowHeight = window.innerHeight
-  console.log(windowHeight)
   const headerHeight = useRef(null)
 
   useEffect(() => {
@@ -32,14 +33,13 @@ function HomePage() {
       const heigth = headerHeight.current.clientHeight
       const toSet = windowHeight -  heigth
       setHeightClass({height: `${toSet}px`})
-      console.log(toSet)
     }
   }, [windowHeight])
 
   return (
     <main className="bg-[#f5f5f5]">
       <div className="h-screen">
-        <Header headerHeight={headerHeight} />
+        <Header headerHeight={headerHeight} setOpenSideBar={setOpenSideBar}/>
 
         <article className="py-10 px-24 gap-x-20 flex items-center justify-between relative" style={heightClass}>
           <section className="w-[400px] z-10 text-[#f5f5f5]">
@@ -51,7 +51,7 @@ function HomePage() {
               palabra cobra vida
             </p>
             <Link
-              className="bg-[#4D4C7D] px-7 py-2 rounded-md text-white font-medium text-lg"
+              className="bg-[#F99417] px-7 py-2 rounded-md text-white font-medium text-lg"
               to={"/app"}
             >
               ¡Pruebalo!
@@ -71,7 +71,7 @@ function HomePage() {
       <article className="px-24">
         <h3 className="text-3xl my-7">Funcionalidades</h3>
 
-        <section className="grid grid-cols-3 gap-x-24 mb-14">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-24 gap-y-10 mb-14">
           <Cards
             initColor={"#342f54"}
             finColor={"#68679e"}
@@ -97,6 +97,12 @@ function HomePage() {
       </article>
 
       <Footer />
+
+      {openSideBar && (
+        <SideBar 
+          setOpenSideBar={setOpenSideBar}
+        />
+      )}
     </main>
   );
 }

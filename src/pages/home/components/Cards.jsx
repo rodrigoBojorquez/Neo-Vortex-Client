@@ -14,7 +14,7 @@ function Cards({ initColor, finColor, icon, title, text }) {
         {icon}
         </div>
 
-        <div className='text-[#616161] flex flex-col items-center w-[60%] mx-auto'>
+        <div className='text-[#616161] flex flex-col justify-center items-center w-[60%] mx-auto'>
             <h1 className='text-center uppercase text-[16px] font-semibold mt-3 mb-5'>{title}</h1>
             <p className='text-center mb-5'>{text}</p>
         </div>
