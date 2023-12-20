@@ -28,7 +28,7 @@ function Assistant() {
             const inputH = inputHeight.current.clientHeight
             const assistantH = assistant.current.clientHeight
             const headH = head.current.clientHeight
-            const toSet = assistantH - inputH - headH
+            const toSet = assistantH - ( inputH + headH )
             
             setFieldHeight(`${toSet}px`)
         }
