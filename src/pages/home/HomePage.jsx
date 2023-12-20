@@ -18,6 +18,7 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 function HomePage() {
   const [heightClass, setHeightClass] = useState({})
   const [openSideBar, setOpenSideBar] = useState(false)
+  const [authToken, setAuthToken] = useState(null)
 
   const iconSize = "7rem"
   const styles = {
@@ -36,6 +37,15 @@ function HomePage() {
     }
   }, [windowHeight])
 
+  // GET THE TOKEN IF EXISTS
+  useEffect(() => {
+    // const token = localStorage.getItem("token")
+    // if(token !== null) {
+    //   setAuthToken(token)
+    // }
+    setAuthToken({username: "tester"})
+  }, [])
+
   return (
     <main className="bg-[#f5f5f5]">
       <div className="h-screen">
@@ -52,7 +62,7 @@ function HomePage() {
             </p>
             <Link
               className="bg-[#F99417] px-7 py-2 rounded-md text-white font-medium text-lg"
-              to={"/app"}
+              to={authToken ? `/me/${authToken.username}` : "/login"}
             >
               ¡Pruebalo!
             </Link>
