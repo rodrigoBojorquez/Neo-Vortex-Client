@@ -17,6 +17,7 @@ function Editor() {
     if(headerHeight.current) {
       const heigth = headerHeight.current.clientHeight
       const toSet = windowHeight -  heigth
+      console.log(toSet)
       setHeightClass({height: `${toSet}px`})
     }
   }, [windowHeight])

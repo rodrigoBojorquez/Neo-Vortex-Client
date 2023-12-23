@@ -23,6 +23,7 @@ function App() {
       - Implement Redux Toolkit to manage the auth state
       - The auth state will be managing by JWT and level access
       - Change the Link in HomePage to /me/:user
+      - Change the Link in the Editor page to /me/:user
   */
 
   return (
