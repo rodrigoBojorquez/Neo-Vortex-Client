@@ -35,13 +35,13 @@ function App() {
         <Route path='/signup' element={<Signup/>} />
         <Route path='/contact' element={<Contact/>} />
         <Route path='/about' element={<About/>} />
-        <Route path='/me/:username' element={<UserDash/>} />
       </Routes>
 
       {/* PRIVATE ROUTES */}
       <Routes>
         <Route element={<PrivateRoute isAuth={true} />}>
           <Route path='/editor/:docId' element={<Editor />} />
+          <Route path='/me/:username' element={<UserDash/>} />
         </Route>
       </Routes>
     </BrowserRouter>
