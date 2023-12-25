@@ -2,9 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* CUSTOM CSS */
 @layer components {
     .vortex-scroll::-webkit-scrollbar {
         width: 0;
+    }
+}
+
+/* CUSTOM TW CLASSES */
+@layer components  {
+    .input-container {
+        @apply flex flex-col justify-center gap-2 w-full mb-3
+    }
+    .input-form {
+        @apply text-gray-500 p-2 border-[1.5px] border-gray-400 rounded-sm hover:ring-[0.5px] outline-none hover:ring-gray-500
+    }
+    .submit-button {
+        @apply bg-blue-500 text-white text-lg uppercase rounded-sm py-2 w-full hover:bg-blue-600
     }
 }
