@@ -15,7 +15,7 @@ import About from './pages/static/about/About'
 // PRIVATE
 import Editor from './pages/application/editor/Editor'
 import UserDash from './pages/application/userDash/UserDash'
-
+import Chat from './pages/application/chatAI/Chat'
 function App() {
 
   /* 
@@ -42,6 +42,7 @@ function App() {
         <Route element={<PrivateRoute isAuth={true} />}>
           <Route path='/editor/:docId' element={<Editor />} />
           <Route path='/me/:username' element={<UserDash/>} />
+          <Route path='/chatAi' element={<Chat />} />
         </Route>
       </Routes>
     </BrowserRouter>

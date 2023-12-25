@@ -21,3 +21,10 @@
         @apply bg-blue-500 text-white text-lg uppercase rounded-sm py-2 w-full hover:bg-blue-600
     }
 }
+.glass-efect{
+    @apply bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border z-50
+ }
+ 
+ .grid-cols{
+    grid-template-columns: 19% 81%;
+ }
