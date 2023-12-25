@@ -12,7 +12,7 @@ function SideBar({ setOpenSideBar }) {
 
   return (
     <div className='h-screen bg-black bg-opacity-25 inset-0 fixed flex justify-end z-20'>
-        <nav className='w-[400px] bg-[#363062] py-7 px-5 flex flex-col justify-between'>
+        <nav className='w-full md:w-[400px] bg-[#363062] py-7 px-5 flex flex-col justify-between'>
             <div>
             <div className='flex justify-end'>
               <button 

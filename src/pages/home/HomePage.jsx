@@ -32,10 +32,11 @@ function HomePage() {
   useEffect(() => {
     if(headerHeight.current) {
       const heigth = headerHeight.current.clientHeight
+      console.log("tilin")
       const toSet = windowHeight -  heigth
       setHeightClass({height: `${toSet}px`})
     }
-  }, [windowHeight])
+  }, [window.innerHeight])
 
   // GET THE TOKEN IF EXISTS
   useEffect(() => {
@@ -51,7 +52,7 @@ function HomePage() {
       <div className="h-screen">
         <Header headerHeight={headerHeight} setOpenSideBar={setOpenSideBar}/>
 
-        <article className="py-10 px-24 gap-x-20 flex items-center justify-between relative" style={heightClass}>
+        <article className="py-10 px-5 md:px-24 gap-x-20 flex items-center justify-between relative" style={heightClass}>
           <section className="w-[400px] z-10 text-[#f5f5f5]">
             <h2 className="text-6xl font-semibold mb-5">
               Desata tu creatividad
@@ -71,7 +72,7 @@ function HomePage() {
             <img
               src={Home3}
               alt="Home image"
-              className="object-cover"
+              className="object-cover w-full"
               style={heightClass}
             />
           </section>

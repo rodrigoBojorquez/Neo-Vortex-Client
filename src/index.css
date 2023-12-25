@@ -7,6 +7,11 @@
     .vortex-scroll::-webkit-scrollbar {
         width: 0;
     }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
 
 /* CUSTOM TW CLASSES */
@@ -15,10 +20,10 @@
         @apply flex flex-col justify-center gap-2 w-full mb-3
     }
     .input-form {
-        @apply text-gray-500 p-2 border-[1.5px] border-gray-400 rounded-sm hover:ring-[0.5px] outline-none hover:ring-gray-500
+        @apply text-gray-500 p-2 border-[1.5px] border-gray-400 rounded-sm outline-[0.2px] outline-gray-500
     }
     .submit-button {
-        @apply bg-blue-500 text-white text-lg uppercase rounded-sm py-2 w-full hover:bg-blue-600
+        @apply bg-blue-400 text-white text-base uppercase font-medium rounded-sm py-1 w-full hover:bg-blue-500
     }
 }
 .glass-efect{
