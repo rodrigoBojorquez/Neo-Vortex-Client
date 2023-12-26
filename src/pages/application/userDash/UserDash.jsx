@@ -55,7 +55,7 @@ function UserDash() {
       <h1 className=' text-3xl font-semibold my-4 ml-4 '>Recientes</h1>
 
       <section className='w-full mb-6 flex justify-center items-center'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16 lg:gap-20 '>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-20 '>
           {data.map((doc, index) => (
             <CardDocs key={index} name={doc.name} imagen={doc.imagen} />
           ))}
