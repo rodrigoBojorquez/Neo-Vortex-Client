@@ -26,7 +26,7 @@ function UserDash() {
     <div>
       <Header />
       <section className='w-full bg-[#4D4C7D] mt-11  flex justify-center items-center'>
-      <div className='grid grid-cols-2  lg:grid-cols-4 gap-8 md:gap-12 lg:gap-20 max-w-[1000px] mx-auto my-10'>
+        <div className='grid grid-cols-2  lg:grid-cols-4 gap-8 md:gap-12 lg:gap-20 max-w-[1000px] mx-auto my-10'>
           <div className='w-[150px] h-[220px] rounded-lg mt-4 bg-[#363062] flex flex-col items-center'>
             <FaPlus size={120} color="white" className='rounded-md text-center pb-2 pt-10' />
             <h2 className='text-2xl font-semibold text-white text-center'>Nuevo</h2>
@@ -48,16 +48,19 @@ function UserDash() {
 
       <h1 className=' text-3xl font-semibold my-4 ml-4 '>Recientes</h1>
 
-      <section className='w-full mb-4 flex justify-center items-center'>
+      <section className='w-full mb-6 flex justify-center items-center'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20'>
           {datosEjeDocs.map((doc, index) => (
             <div
               key={index}
-              className='w-[350px] h-[210px] rounded-lg mt-4 bg-[#363062] flex flex-col items-center'
+              className='w-[350px] h-[210px] border  rounded-lg mt-4 bg-[#363062]'
               style={{
                 backgroundImage: `url(${doc.imagen})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center center',
+                display: 'flex', 
+                flexDirection: 'column', 
+                justifyContent: 'flex-end',
               }}
             >
               <div className='w-full h-[50px] rounded-lg bg-black text-center align-end '>
@@ -68,7 +71,7 @@ function UserDash() {
         </div>
       </section>
 
-      <h1 className=' text-3xl font-semibold my-4 ml-4 '>Documentos</h1>
+      <h1 className=' text-3xl font-semibold mt-6 mb-4 ml-4 '>Documentos</h1>
 
       <Table data={data} />
 
