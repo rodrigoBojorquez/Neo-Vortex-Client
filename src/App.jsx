@@ -40,9 +40,10 @@ function App() {
       {/* PRIVATE ROUTES */}
       <Routes>
         <Route element={<PrivateRoute isAuth={true} />}>
+          <Route path='/editor/:docId' element={<Editor />} />
           <Route path='/me/:username' element={<UserDash/>} />
           <Route path='/editor/:docId' element={<Editor />} />
-          <Route path='/chatAi' element={<Chat />} />
+          <Route path='/chat-Ai' element={<Chat />} />
 
 
         </Route>

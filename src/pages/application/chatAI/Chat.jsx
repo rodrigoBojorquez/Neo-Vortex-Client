@@ -1,17 +1,37 @@
-import React from 'react';
-import Siebar from './components/Siebar';
+import React, { useState } from 'react'
+import Sidebar from './components/Sidebar';
 import ChatAi from './components/ChatAi';
 
 function Chat() {
-  return (
-    <div className='bg-[#51508c] h-screen flex'>
+  const [showSidebar, setShowSidebar] = useState(false)
 
-      <div className='fixed h-full left-0 w-1/4'>
-        <Siebar />
+  const handleShowSidebar = () => {
+    setShowSidebar(true)
+  }
+
+  const handleHiddenSidebar = () => {
+    setShowSidebar(false)
+  }
+
+  return (
+    <div className='bg-[#343541] h-screen flex'>
+
+      <div className=' z-40 fixed h-full left-0 w-1/4'>
+        <Sidebar
+          showSidebar={showSidebar}
+          handleHiddenSidebar={handleHiddenSidebar}
+          handleShowSidebar={handleShowSidebar}
+        />
       </div>
 
-      <div className='ml-[20%] w-[75%]'>
-        <ChatAi />
+      <div className='z-30 sm:ml-[20%] sm:w-[75%]'>
+        <ChatAi
+          showSidebar={showSidebar}
+          handleHiddenSidebar={handleHiddenSidebar}
+          handleShowSidebar={handleShowSidebar}
+
+
+        />
       </div>
 
 
