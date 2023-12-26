@@ -1,27 +1,29 @@
 // Table.js
 import React from 'react';
+import { BsThreeDots } from "react-icons/bs";
+
 
 const Table = ({ data }) => {
   return (
-    <table className="min-w-full bg-white border border-gray-300 mb-4">
+    <table className="w-[97%] mx-5 bg-white mb-7">
       <thead>
-        <tr>
-          <th className="py-2 px-4 border-b">Nombre</th>
-          <th className="py-2 px-4 border-b">Edad</th>
-          <th className="py-2 px-4 border-b">Correo electrónico</th>
+        <tr className='text-xl'>
+          <th className="py-2 px-4 border-b border-gray-500 text-left">Nombre</th>
+          <th className="py-2 px-4 border-b border-gray-500 text-left">Creado</th>
+          <th className="py-2 px-4 border-b border-gray-500 text-center"></th>
         </tr>
       </thead>
       <tbody>
         {data.map((item, index) => (
-          <tr key={item.id}>
-            <td className={`py-2 px-4 border-b ${index < data.length - 1 ? 'border-t' : ''}`}>
+          <tr key={item.id} className='font-semibold text-lg'>
+            <td className={`py-2 px-4 border-b border-gray-500 text-left ${index < data.length - 1 ? 'border-t' : ''}`}>
               {item.name}
             </td>
-            <td className={`py-2 px-4 border-b ${index < data.length - 1 ? 'border-t' : ''}`}>
-              {item.age}
+            <td className={`py-2 px-4 border-b border-gray-500 text-left ${index < data.length - 1 ? 'border-t' : ''}`}>
+              {item.date}
             </td>
-            <td className={`py-2 px-4 border-b ${index < data.length - 1 ? 'border-t' : ''}`}>
-              {item.email}
+            <td className={`py-2 px-4 border-b border-gray-500 text-center ${index < data.length - 1 ? 'border-t' : ''}`}>
+              <BsThreeDots />
             </td>
           </tr>
         ))}
@@ -29,5 +31,6 @@ const Table = ({ data }) => {
     </table>
   );
 };
+
 
 export default Table;

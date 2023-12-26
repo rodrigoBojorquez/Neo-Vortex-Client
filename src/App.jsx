@@ -43,7 +43,8 @@ function App() {
           <Route path='/editor/:docId' element={<Editor />} />
           <Route path='/me/:username' element={<UserDash/>} />
           <Route path='/editor/:docId' element={<Editor />} />
-          <Route path='/chat-Ai' element={<Chat />} />
+          <Route path='/chatAi' element={<Chat />} />
+
 
 
         </Route>

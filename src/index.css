@@ -2,25 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* CUSTOM CSS */
 @layer components {
     .vortex-scroll::-webkit-scrollbar {
         width: 0;
     }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 }
+/* CUSTOM TW CLASSES */
+@layer components  {
+    .input-container {
+        @apply flex flex-col justify-center gap-2 w-full mb-3
+    }
+    .input-form {
+        @apply text-gray-500 p-2 border-[1.5px] border-gray-400 rounded-sm outline-[0.2px] outline-gray-500
+    }
+    .submit-button {
+        @apply bg-blue-400 text-white text-base uppercase font-medium rounded-sm py-1 w-full hover:bg-blue-500
+    }
+}
+
 
 .glass-efect {
     @apply bg-black rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-20 border z-50
-}
+ }
 
 
 
-.grid-cols {
+ .grid-cols{
     grid-template-columns: 19% 81%;
-}
-
-
-
+ }
 
 /* Estilo para ocultar el scrollbar */
 .scroll-container::-webkit-scrollbar {
