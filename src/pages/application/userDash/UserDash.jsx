@@ -10,16 +10,12 @@ import Table from './components/Tabla_Docs';
 import doc from '../../../assets/img/doc.png'
 
 
+
 function UserDash() {
   const data = [
-    { id: 1, name: 'Juan Pérez', age: 25, email: 'juan@example.com' },
-    // Agrega más datos según sea necesario
-  ];
-
-  const datosEjeDocs = [
-    { imagen: doc, titulo: 'Titulo del doc 1' },
-    { imagen: doc, titulo: 'Titulo del doc 2' },
-    { imagen: doc, titulo: 'Titulo del doc 3' },
+    { id: 1, name: 'Titulo del doc 1', date: '26/12/2023', imagen: doc},
+    { id: 2, name: 'Titulo del doc 2', date: '26/12/2023', imagen: doc},
+    { id: 3, name: 'Titulo del doc 3', date: '26/12/2023', imagen: doc},
   ];
 
   return (
@@ -50,10 +46,10 @@ function UserDash() {
 
       <section className='w-full mb-6 flex justify-center items-center'>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20'>
-          {datosEjeDocs.map((doc, index) => (
+          {data.map((doc, index) => (
             <div
               key={index}
-              className='w-[350px] h-[210px] border  rounded-lg mt-4 bg-[#363062]'
+              className='w-[350px] h-[210px] border border-black rounded-lg mt-4 bg-[#363062] glass-effect'
               style={{
                 backgroundImage: `url(${doc.imagen})`,
                 backgroundSize: 'cover',
@@ -63,8 +59,8 @@ function UserDash() {
                 justifyContent: 'flex-end',
               }}
             >
-              <div className='w-full h-[50px] rounded-lg bg-black text-center align-end '>
-                <h3 className='text-white mt-3 text-xl'>{doc.titulo}</h3>
+              <div className='w-full h-[50px] rounded-b-lg bg-black text-center align-end '>
+                <h3 className='text-white mt-3 font-semibold text-xl'>{doc.name}</h3>
               </div>
             </div>
           ))}
