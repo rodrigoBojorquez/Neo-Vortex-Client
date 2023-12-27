@@ -2,7 +2,7 @@ import React from 'react'
 
 function CardDocs({ name, imagen }) {
   return (
-      <div className='w-[350px] h-[210px] border border-black rounded-lg mt-4 bg-[#363062] overflow-hidden'
+      <div className='h-[150px] md:h-[210px] border duration-700 cursor-pointer border-black rounded-lg mt-4 bg-[#363062] overflow-hidden'
               style={{
                 backgroundImage: `url(${imagen})`,
                 backgroundSize: 'cover',
@@ -12,8 +12,8 @@ function CardDocs({ name, imagen }) {
                 justifyContent: 'flex-end',
               }}
             >
-              <div className='w-full h-[50px] rounded-b-lg bg-black text-center align-end '>
-                <h3 className='text-white mt-3 font-semibold text-xl'>{name}</h3>
+              <div className='w-full h-[50px] rounded-b-lg glass-effect text-center align-end '>
+                <h3 className='text-[#424242] mt-3 font-semibold text-lg'>{name}</h3>
               </div>
             </div>
   )

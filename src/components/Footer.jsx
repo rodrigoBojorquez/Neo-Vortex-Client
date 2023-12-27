@@ -10,12 +10,12 @@ function Footer() {
   const iconSize = "1.5rem";
 
   return (
-    <footer className="bg-[#363062] text-white flex items-center justify-between px-10 py-3 bottom-0 w-full">
+    <footer className="bg-[#363062] text-white flex items-center justify-between px-4 md:px-10 py-3 bottom-0 w-full">
       <section className="flex items-center gap-x-2">
         <FaCopyright size={"1.2rem"} />
-        <p>2023. Neo Vortex, Inc. All rights reserved</p>
+        <p className="text-xs md:text-base">2023. Neo Vortex, Inc. All rights reserved</p>
       </section>
-      <section className="flex items-center gap-x-3">
+      <section className="flex items-center gap-x-1 md:gap-x-3">
         <a href="#">
           <FaFacebookSquare size={iconSize} />
         </a>
