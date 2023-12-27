@@ -14,6 +14,8 @@ import CardDocs from './components/CardsDocs';
 
 
 function UserDash() {
+
+  const iconSize = "4rem"
   const data = [
     { id: 1, name: 'Titulo del doc 1', date: '24/12/2023', imagen: doc },
     { id: 2, name: 'Titulo del doc 2', date: '25/12/2023', imagen: doc },
@@ -28,25 +30,25 @@ function UserDash() {
         <CardsDash
             initColor={"#342f54"}
             finColor={"#68679e"}
-            icon={<FaPlus size={120} color="white" />}
+            icon={<FaPlus size={iconSize} color="white" />}
             title={"Nuevo"}
           />
           <CardsDash
             initColor={"#342f54"}
             finColor={"#68679e"}
-            icon={<FaUpload size={100} color="white" />}
+            icon={<FaUpload size={iconSize} color="white" />}
             title={"Importar"}
           />
           <CardsDash
             initColor={"#342f54"}
             finColor={"#68679e"}
-            icon={<FaRobot size={100} color="white" />}
+            icon={<FaRobot size={iconSize} color="white" />}
             title={"Asistente"}
           />
           <CardsDash
             initColor={"#342f54"}
             finColor={"#68679e"}
-            icon={<FaDropbox size={100} color="white" />}
+            icon={<FaDropbox size={iconSize} color="white" />}
             title={"Dropbox"}
           />
         </div>

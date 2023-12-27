@@ -13,8 +13,8 @@ function Login() {
   };
 
   return (
-    <main className="h-screen max-h-screen flex justify-center items-center bg-gradient-to-r from-[#e2e2e2] to-[#c9d6ff]">
-      <article className="grid grid-cols-2 shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white rounded-[30px] overflow-hidden h-[450px] w-[750px]">
+    <main className="h-screen max-h-screen flex justify-center items-center bg-gradient-to-r from-[#e2e2e2] to-[#c9d6ff] px-10">
+      <article className="grid grid-cols-1 md:grid-cols-2 shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white rounded-[30px] overflow-hidden h-[450px] w-[750px]">
         <form
           onSubmit={handleLogin}
           className="px-10 py-7 flex flex-col justify-center"
@@ -29,7 +29,10 @@ function Login() {
               type="button"
               className="border-[1px] border-[#ccc] rounded-lg p-2 flex items-center text-[#444444] group hover:bg-[#444444]"
             >
-              <FaGooglePlusG size={"1rem"} className="text-[#444444] group-hover:text-white" />
+              <FaGooglePlusG
+                size={"1rem"}
+                className="text-[#444444] group-hover:text-white"
+              />
             </button>
             <button
               type="button"
@@ -50,7 +53,12 @@ function Login() {
           </p>
 
           <div className="flex flex-col gap-3">
-            <input type="text" className="input-auth" placeholder="Email" autoComplete="off" />
+            <input
+              type="text"
+              className="input-auth"
+              placeholder="Email"
+              autoComplete="off"
+            />
           </div>
           <div className="input-container">
             <input
@@ -61,9 +69,24 @@ function Login() {
             />
           </div>
 
-          <Link className="text-sm text-center text-[#525252] mb-4">
-            ¿Olvidaste tu contraseña?
-          </Link>
+          <div className="mx-auto mb-3">
+            <Link
+              to={"/recovery"}
+              className="text-sm text-center text-[#525252] mb-4 border-b-[1.5px] pb-[1.5px] border-transparent hover:border-[#525252]"
+            >
+              ¿Olvidaste tu contraseña?
+            </Link>
+          </div>
+
+          <div className="text-[#525252] flex md:hidden gap-x-1 mb-4 justify-center">
+            <p className="text-sm">¿Nuevo por aquí?</p>
+            <Link
+              to={"/signup"}
+              className="border-b-[1.5px] text-sm pb-0 border-transparent hover:border-[#525252]"
+            >
+              Crea tu cuenta
+            </Link>
+          </div>
 
           <div className="flex justify-center">
             <button
@@ -74,12 +97,17 @@ function Login() {
             </button>
           </div>
         </form>
-        <section className=" rounded-[150px_0_0_100px] bg-gradient-to-r from-[#5c6bc0] from-[5%] to-[#512da8] flex items-center px-7 text-['Montserrat',serif]">
+        <section className="hidden md:flex rounded-[150px_0_0_100px] bg-gradient-to-r from-[#5c6bc0] from-[5%] to-[#512da8] items-center px-7 text-['Montserrat',serif]">
           <div className="flex flex-col items-center">
-            <h3 className="text-white text-3xl font-bold mb-4">¡Hola, Bienvenido!</h3>
-            <p className="text-white text-sm text-center mb-5 font-normal">Registrate de forma gratuita con tus datos para tener acceso a todas las funcionalidades</p>
+            <h3 className="text-white text-3xl font-bold mb-4">
+              ¡Hola, Bienvenido!
+            </h3>
+            <p className="text-white text-sm text-center mb-5 font-normal">
+              Registrate de forma gratuita con tus datos para tener acceso a
+              todas las funcionalidades
+            </p>
 
-            <Link 
+            <Link
               className="bg-transparent py-2 px-11 rounded-md border-[1.5px] border-white text-[13px] uppercase font-medium text-white"
               to="/signup"
             >

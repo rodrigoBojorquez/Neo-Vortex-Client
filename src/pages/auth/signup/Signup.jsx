@@ -13,9 +13,9 @@ function Signup() {
   };
 
   return (
-    <main className="h-screen max-h-screen flex justify-center items-center bg-gradient-to-r from-[#e2e2e2] to-[#c9d6ff]">
-      <article className="grid grid-cols-2 shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white rounded-[30px] overflow-hidden h-[470px] w-[750px]">
-        <section className=" rounded-[0_150px_100px_0] bg-gradient-to-r from-[#5c6bc0] from-[10%] to-[#512da8] flex items-center px-7 text-['Montserrat',serif]">
+    <main className="h-screen max-h-screen flex justify-center items-center bg-gradient-to-r from-[#e2e2e2] to-[#c9d6ff] px-10">
+      <article className="grid grid-cols-1 md:grid-cols-2 shadow-[0_5px_15px_rgba(0,0,0,0.35)] bg-white rounded-[30px] overflow-hidden h-[470px] w-[750px]">
+        <section className="hidden md:flex rounded-[0_150px_100px_0] bg-gradient-to-r from-[#5c6bc0] from-[10%] to-[#512da8] items-center px-7 text-['Montserrat',serif]">
           <div className="flex flex-col items-center">
             <h3 className="text-white text-3xl font-bold mb-4">
               ¡Bienvenido de nuevo!
@@ -91,13 +91,18 @@ function Signup() {
               autoComplete="off"
             />
           </div>
-
+          <div className="text-[#525252] flex md:hidden gap-x-1 mb-4 justify-center">
+            <p className="text-sm">¿Ya tienes cuenta?</p>
+            <Link to={"/login"} className="border-b-[1.5px] text-sm pb-0 border-transparent hover:border-[#525252]">
+              Inicia Sesión
+            </Link>
+          </div>
           <div className="flex justify-center">
             <button
               type="submit"
               className="bg-[#512da8] rounded-md text-white py-2 px-11 text-[13px] uppercase font-medium"
             >
-              Iniciar
+              Crear
             </button>
           </div>
         </form>
